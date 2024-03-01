@@ -62,6 +62,7 @@ export default function Sign() {
 
         if (
           !Object.values(validation).includes(true) &&
+          !Object.values(state).includes("") &&
           state.password === state.password_double
         ) {
           signAPIRequest();

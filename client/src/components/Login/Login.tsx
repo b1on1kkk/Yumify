@@ -60,7 +60,10 @@ export default function Login() {
           setValidation
         );
 
-        if (!Object.values(validation).includes(true)) {
+        if (
+          !Object.values(validation).includes(true) &&
+          !Object.values(state).includes("")
+        ) {
           loginAPIRequest();
         }
       }}
