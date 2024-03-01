@@ -1,0 +1,10 @@
+client/node_modules/
+client/public/
+client/src/assets
+client/README.md
+
+server/node_modules/
+server/dist/
+server/.env
+server/.eslintrc.js
+server/README.md
