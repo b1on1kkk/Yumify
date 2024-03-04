@@ -8,8 +8,39 @@ datasource db {
 }
 
 model users {
-  id       Int     @id @default(autoincrement())
-  email    String? @db.VarChar(20)
-  password String? @db.VarChar(200)
-  nickname String? @db.VarChar(100)
+  id       Int      @id @default(autoincrement())
+  email    String?  @db.VarChar(20)
+  password String?  @db.VarChar(200)
+  nickname String?  @db.VarChar(100)
+  basket   basket[]
+}
+
+model basket {
+  basket_id  Int       @id @default(autoincrement())
+  user_id    Int?
+  product_id Int?
+  quantity   Int?
+  users      users?    @relation(fields: [user_id], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "basket_ibfk_1")
+  products   products? @relation(fields: [product_id], references: [product_id], onDelete: Restrict, onUpdate: Restrict, map: "basket_ibfk_2")
+
+  @@index([product_id], map: "product_id")
+  @@index([user_id], map: "user_id")
+}
+
+model products {
+  product_id    Int                @id @default(autoincrement())
+  price         String?            @db.VarChar(20)
+  picture       String?            @db.VarChar(500)
+  product_title String?            @db.VarChar(50)
+  weight        String?            @db.VarChar(10)
+  category      products_category?
+  basket        basket[]
+}
+
+enum products_category {
+  combo
+  hamburger
+  drink
+  chips
+  desert
 }

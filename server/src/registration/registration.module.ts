@@ -1,18 +1,13 @@
 import { Module } from '@nestjs/common';
+
 import { RegistrationController } from './registration.controller';
 import { RegistrationService } from './registration.service';
-import { JwtModule } from '@nestjs/jwt';
 
-import { PrismaService } from 'src/prisma_service/prisma.service';
+import { SharedModulesModule } from 'src/shared-modules/shared-modules.module';
 
 @Module({
-  imports: [
-    JwtModule.register({
-      secret: process.env.SECRET_KEY,
-      signOptions: { expiresIn: '1m' },
-    }),
-  ],
+  imports: [SharedModulesModule],
   controllers: [RegistrationController],
-  providers: [RegistrationService, PrismaService],
+  providers: [RegistrationService],
 })
 export class RegistrationModule {}

@@ -5,7 +5,6 @@ import { LoginDto } from './dto/login.dto';
 
 import * as bcrypt from 'bcrypt';
 import { RegistrationDto } from './dto/registration.dto';
-import { TestRequestTypes } from './interfaces/interfaces';
 
 @Injectable()
 export class RegistrationService {
@@ -26,7 +25,14 @@ export class RegistrationService {
         },
       });
 
+      const user = await this.prisma.users.findFirst({
+        where: {
+          email: dto.email,
+        },
+      });
+
       return this.jwtService.sign({
+        id: user.id,
         email: dto.email,
       });
     } catch (error) {
@@ -48,15 +54,12 @@ export class RegistrationService {
     if (!passwordMatch) return null;
 
     return await this.jwtService.sign({
+      id: user.id,
       email: dto.email,
     });
   }
 
-  test(token: string): TestRequestTypes | null {
-    try {
-      return this.jwtService.verify(token);
-    } catch (error) {
-      return null;
-    }
+  test(): string {
+    return 'Yep';
   }
 }
