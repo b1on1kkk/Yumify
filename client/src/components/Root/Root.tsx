@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { MyGlobalContext } from "../../context/globalContext";
 
@@ -15,88 +15,90 @@ import Main from "../WelcomePage/Main/Main";
 import Loading from "../Loading/Loading";
 
 import type { TBasketProduct } from "../interfaces/interfaces";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: (
-          <Guard
-            render_after_loading={<Main />}
-            render_on_loading={<Loading />}
-          />
-        )
-      },
-      {
-        path: "/products/:product_type",
-        element: (
-          <Guard
-            render_after_loading={<ProductsByType />}
-            render_on_loading={<Loading />}
-          />
-        )
-      },
-      {
-        path: "/products",
-        element: (
-          <Guard
-            render_after_loading={<Products />}
-            render_on_loading={<Loading />}
-          />
-        )
-      },
-      {
-        path: "/purchase_history",
-        element: <div>purchase_history</div>
-      },
-      {
-        path: "/notifications",
-        element: <div>notifications</div>
-      },
-      {
-        path: "/user",
-        element: <div>user</div>
-      }
-    ]
-  },
-  {
-    path: "/cart",
-    element: (
-      <Guard render_after_loading={<Cart />} render_on_loading={<Loading />} />
-    )
-  },
-  {
-    path: "/products/:product_type/:product_id",
-    element: (
-      <Guard
-        render_after_loading={<Product />}
-        render_on_loading={<Loading />}
-      />
-    )
-  },
-  {
-    path: "/login",
-    element: (
-      <Guard render_after_loading={<Login />} render_on_loading={<Loading />} />
-    )
-  },
-  {
-    path: "/sign",
-    element: (
-      <Guard render_after_loading={<Sign />} render_on_loading={<Loading />} />
-    )
-  }
-]);
+import type { TAxiosResponse } from "../Guard/interfaces/interfaces";
 
 export default function Root() {
   const [basket, setBasket] = useState<TBasketProduct[]>([]);
+  const [user, setUser] = useState<TAxiosResponse | null>(null);
 
   return (
-    <MyGlobalContext.Provider value={{ basket, setBasket }}>
-      <RouterProvider router={router} />
+    <MyGlobalContext.Provider value={{ basket, user, setBasket, setUser }}>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<App />}
+            children={[
+              <Route
+                key={"/"}
+                path="/"
+                element={
+                  <Guard
+                    render_after_loading={<Main />}
+                    render_on_loading={<Loading />}
+                    redirect_path="/login"
+                  />
+                }
+              />,
+              <Route
+                key={"/products/:product_type"}
+                path="/products/:product_type"
+                element={
+                  <Guard
+                    render_after_loading={<ProductsByType />}
+                    render_on_loading={<Loading />}
+                    redirect_path="/login"
+                  />
+                }
+              />,
+              <Route
+                key={"/products"}
+                path="/products"
+                element={
+                  <Guard
+                    render_after_loading={<Products />}
+                    render_on_loading={<Loading />}
+                    redirect_path="/login"
+                  />
+                }
+              />,
+              <Route
+                key={"/purchase_history"}
+                path="/purchase_history"
+                element={<div>purchase_history</div>}
+              />,
+              <Route
+                key={"/notifications"}
+                path="/notifications"
+                element={<div>notifications</div>}
+              />,
+              <Route key={"/user"} path="/user" element={<div>user</div>} />
+            ]}
+          />
+          <Route
+            path="/cart"
+            element={
+              <Guard
+                render_after_loading={<Cart />}
+                render_on_loading={<Loading />}
+                redirect_path="/login"
+              />
+            }
+          />
+          <Route
+            path="/products/:product_type/:product_id"
+            element={
+              <Guard
+                render_after_loading={<Product />}
+                render_on_loading={<Loading />}
+                redirect_path="/login"
+              />
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/sign" element={<Sign />} />
+        </Routes>
+      </BrowserRouter>
     </MyGlobalContext.Provider>
   );
 }

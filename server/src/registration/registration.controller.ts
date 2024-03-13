@@ -1,3 +1,5 @@
+import { Request, Response } from 'express';
+
 import {
   Body,
   Controller,
@@ -5,6 +7,7 @@ import {
   HttpCode,
   HttpException,
   Post,
+  Req,
   Res,
   UseGuards,
 } from '@nestjs/common';
@@ -13,7 +16,6 @@ import { LoginDto } from './dto/login.dto';
 import { RegistrationDto } from './dto/registration.dto';
 import { RegistrationService } from './registration.service';
 
-import { Response } from 'express';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { LoggedInGuard } from 'src/logged-in/logged-in.guard';
 
@@ -49,12 +51,11 @@ export class RegistrationController {
       .json({ text: 'Logged in!', status: 200 });
   }
 
-  @Get('/test')
+  @Get('/user')
   @UseGuards(AuthGuard)
-  async test(@Res() res: Response) {
-    const data = this.registrationService.test();
-
-    if (data)
-      return res.json({ message: 'Data is reachable', statusCode: 200 });
+  async getAuthenticatedUser(@Req() req: Request) {
+    return await this.registrationService.getAuthenticatedUser(
+      req.cookies.login_jwt,
+    );
   }
 }

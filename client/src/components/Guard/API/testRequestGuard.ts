@@ -1,19 +1,20 @@
 import axios, { AxiosError } from "axios";
 
-import type { TAxiosResponse } from "../interfaces/interfaces";
+import type {
+  TAxiosErrorResponese,
+  TAxiosResponse
+} from "../interfaces/interfaces";
 
 export async function testRequestGuard() {
   try {
-    const data = await axios.get("http://localhost:3000/registration/test", {
+    const data = await axios.get("http://localhost:3000/registration/user", {
       withCredentials: true
     });
 
     return data.data as TAxiosResponse;
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      const axiosError = error as AxiosError;
+    const axiosError = error as AxiosError;
 
-      return axiosError.response!.data as TAxiosResponse;
-    }
+    return axiosError.response!.data as TAxiosErrorResponese;
   }
 }

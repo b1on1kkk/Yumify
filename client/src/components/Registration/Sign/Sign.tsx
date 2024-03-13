@@ -60,13 +60,14 @@ export default function Sign() {
           setValidation
         );
 
-        if (
-          !Object.values(validation).includes(true) &&
-          !Object.values(state).includes("") &&
-          state.password === state.password_double
-        ) {
-          signAPIRequest();
-        }
+        // if (
+        //   !Object.values(validation).includes(true) &&
+        //   !Object.values(state).includes("")
+        // ) {
+
+        // }
+
+        signAPIRequest();
       }}
     >
       <Input

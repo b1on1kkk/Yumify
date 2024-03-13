@@ -41,25 +41,47 @@ export class RegistrationService {
   }
 
   async login(dto: LoginDto): Promise<string> {
-    const user = await this.prisma.users.findFirst({
-      where: {
-        email: dto.email,
-      },
-    });
+    try {
+      const user = await this.prisma.users.findFirst({
+        where: {
+          email: dto.email,
+        },
+      });
 
-    if (!user) return null;
+      if (!user) return null;
 
-    const passwordMatch = await bcrypt.compare(dto.password, user.password);
+      const passwordMatch = await bcrypt.compare(dto.password, user.password);
 
-    if (!passwordMatch) return null;
+      if (!passwordMatch) return null;
 
-    return await this.jwtService.sign({
-      id: user.id,
-      email: dto.email,
-    });
+      return this.jwtService.sign({
+        id: user.id,
+      });
+    } catch (error) {
+      return '';
+    }
   }
 
-  test(): string {
-    return 'Yep';
+  async getAuthenticatedUser(token: string): Promise<{
+    email: string;
+    nickname: string;
+  }> {
+    const decodedToken = await this.jwtService.decode(token);
+
+    try {
+      const user = await this.prisma.users.findFirst({
+        select: {
+          email: true,
+          nickname: true,
+        },
+        where: {
+          id: decodedToken.id,
+        },
+      });
+
+      return user ? user : null;
+    } catch (error) {
+      return null;
+    }
   }
 }
