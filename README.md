@@ -34,16 +34,11 @@ To get Yumify up and running quickly, follow these steps using Docker Compose:
 
 ## Built With
 
-
-
 | Technolody | Short Description |
 |---|---|
-| TypeScript | Used everywhere: as client & server side |
-| [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev) React | The web framework used |
-| Node.js | Server Environment | 
-| Nest js | Moder and scalable backend framework | 
-| MySQL | Database | 
-| Prisma | The best ORM I've used |
-
-
-
+| [![My Skills](https://skillicons.dev/icons?i=ts)](https://skillicons.dev) | Used everywhere: as client & server side |
+| [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev) | The web framework used |
+| [![My Skills](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev) | Server Environment | 
+| [![My Skills](https://skillicons.dev/icons?i=nestjs)](https://skillicons.dev) | Moder and scalable backend framework | 
+| [![My Skills](https://skillicons.dev/icons?i=mysql)](https://skillicons.dev) | Database | 
+| [![My Skills](https://skillicons.dev/icons?i=prisma)](https://skillicons.dev) | The best ORM I've used |
