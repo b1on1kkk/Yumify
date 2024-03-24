@@ -26,8 +26,6 @@ Yumify is a full-stack e-commerce mobile web application designed for delivering
 
 To get Yumify up and running quickly, follow these steps using Docker Compose:
 
-## Installation and Setup
-
 1. Clone the repository: `git clone https://github.com/b1on1kkk/Yumify.git`
 2. Install dependencies for client-side and server-side: `npm install`
 3. Build and run the Docker containers: 
