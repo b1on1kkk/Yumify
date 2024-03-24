@@ -5,7 +5,12 @@ import { SharedModulesModule } from './shared-modules/shared-modules.module';
 import { BasketModule } from './basket/basket.module';
 
 @Module({
-  imports: [RegistrationModule, ProductsModule, SharedModulesModule, BasketModule],
+  imports: [
+    RegistrationModule,
+    ProductsModule,
+    SharedModulesModule,
+    BasketModule,
+  ],
   controllers: [],
   providers: [],
 })

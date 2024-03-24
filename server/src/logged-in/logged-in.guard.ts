@@ -11,11 +11,15 @@ export class LoggedInGuard implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest();
 
-    if (
-      request.cookies.login_jwt &&
-      this.jwtService.verify(request.cookies.login_jwt)
-    ) {
-      return false;
+    try {
+      if (
+        request.cookies.login_jwt &&
+        this.jwtService.verify(request.cookies.login_jwt)
+      ) {
+        return false;
+      }
+    } catch (error) {
+      return true;
     }
 
     return true;

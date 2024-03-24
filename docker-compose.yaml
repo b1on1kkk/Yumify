@@ -1,0 +1,49 @@
+version: "3"
+services:
+  react_app:
+    build:
+      dockerfile: ./docker/react_app/Dockerfile
+    container_name: react_app_client
+    tty: true
+    ports:
+      - 8080:8080
+    working_dir: /react-docker
+    volumes:
+      - ./client:/react-docker
+    networks:
+      - app-network
+    depends_on:
+      - db
+      - server_app
+
+  db:
+    build:
+      dockerfile: ./docker/mysql/Dockerfile
+    container_name: mysql_db
+    tty: true
+    ports:
+      - "3320:3306"
+    environment:
+      MYSQL_DATABASE: yumify
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_PASSWORD: root123
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - app-network
+
+  server_app:
+    build:
+      dockerfile: ./docker/server_app/Dockerfile
+    container_name: server_app
+    tty: true
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+networks:
+  app-network:
+    driver: bridge

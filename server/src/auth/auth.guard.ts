@@ -1,4 +1,10 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  HttpException,
+  HttpStatus,
+  Injectable,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Observable } from 'rxjs';
 
@@ -11,11 +17,15 @@ export class AuthGuard implements CanActivate {
   ): boolean | Promise<boolean> | Observable<boolean> {
     const request = context.switchToHttp().getRequest();
 
-    if (
-      request.cookies.login_jwt &&
-      this.jwtService.verify(request.cookies.login_jwt)
-    ) {
-      return true;
+    try {
+      if (
+        request.cookies.login_jwt &&
+        this.jwtService.verify(request.cookies.login_jwt)
+      ) {
+        return true;
+      }
+    } catch (error) {
+      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     }
 
     return false;

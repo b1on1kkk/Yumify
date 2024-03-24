@@ -1,13 +1,11 @@
 import { createContext, useContext } from "react";
-import type {
-  TBasketProduct,
-  TUser
-} from "../components/interfaces/interfaces";
+import type { TBasketProduct } from "../components/interfaces/interfaces";
+import type { TAxiosResponse } from "../components/Guard/interfaces/interfaces";
 
 export type GlobalContent = {
   basket: TBasketProduct[];
-  user: TUser | null;
-  setUser: (c: TUser) => void;
+  user: TAxiosResponse | null;
+  setUser: (c: TAxiosResponse) => void;
   setBasket: (c: TBasketProduct[]) => void;
 };
 
