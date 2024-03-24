@@ -8,7 +8,7 @@ Yumify is a full-stack e-commerce mobile web application designed for delivering
 - **Real-time Tracking:** Know exactly when your food will arrive with real-time order tracking.
 - **Secure Payment:** Complete transactions confidently with integrated secure payment gateways.
 - **User-friendly Interface:** Navigate through a smooth and intuitive interface optimized for mobile users.
-- **Modern Tech Stack:** Built with React, Node.js, and MongoDB for performance and scalability.
+- **Modern Tech Stack:** Built with React, Node.JS, Nest.JS and MySQL for performance and scalability.
 
 ## Screenshots
 
@@ -27,7 +27,7 @@ Yumify is a full-stack e-commerce mobile web application designed for delivering
 To get Yumify up and running quickly, follow these steps using Docker Compose:
 
 1. Clone the repository: `git clone https://github.com/b1on1kkk/Yumify.git`
-2. Install dependencies for client-side and server-side: `npm install`
+2. Install dependencies for client-side and server-side (optional): `npm install`
 3. Build and run the Docker containers: 
     * `docker-compose build`
     * `docker-compose up -d`
