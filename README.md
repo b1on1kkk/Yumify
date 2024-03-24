@@ -10,6 +10,17 @@ Yumify is a full-stack e-commerce mobile web application designed for delivering
 - **User-friendly Interface:** Navigate through a smooth and intuitive interface optimized for mobile users.
 - **Modern Tech Stack:** Built with React, Node.JS, Nest.JS and MySQL for performance and scalability.
 
+## Built With
+
+| Technolody | Short Description |
+|---|---|
+| [![My Skills](https://skillicons.dev/icons?i=ts)](https://skillicons.dev) | Used everywhere: as client & server side |
+| [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev) | The web framework used |
+| [![My Skills](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev) | Server Environment | 
+| [![My Skills](https://skillicons.dev/icons?i=nestjs)](https://skillicons.dev) | Moder and scalable backend framework | 
+| [![My Skills](https://skillicons.dev/icons?i=mysql)](https://skillicons.dev) | Database | 
+| [![My Skills](https://skillicons.dev/icons?i=prisma)](https://skillicons.dev) | The best ORM I've used |
+
 ## Screenshots
 
 ![image](https://github.com/b1on1kkk/Yumify/assets/114521829/836aa642-0093-47b9-bb8d-50c73c5f3a24)
@@ -31,14 +42,3 @@ To get Yumify up and running quickly, follow these steps using Docker Compose:
 3. Build and run the Docker containers: 
     * `docker-compose build`
     * `docker-compose up -d`
-
-## Built With
-
-| Technolody | Short Description |
-|---|---|
-| [![My Skills](https://skillicons.dev/icons?i=ts)](https://skillicons.dev) | Used everywhere: as client & server side |
-| [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev) | The web framework used |
-| [![My Skills](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev) | Server Environment | 
-| [![My Skills](https://skillicons.dev/icons?i=nestjs)](https://skillicons.dev) | Moder and scalable backend framework | 
-| [![My Skills](https://skillicons.dev/icons?i=mysql)](https://skillicons.dev) | Database | 
-| [![My Skills](https://skillicons.dev/icons?i=prisma)](https://skillicons.dev) | The best ORM I've used |
