@@ -10,19 +10,20 @@ Yumify is a full-stack e-commerce mobile web application designed for delivering
 - **User-friendly Interface:** Navigate through a smooth and intuitive interface optimized for mobile users.
 - **Modern Tech Stack:** Built with React, Node.JS, Nest.JS and MySQL for performance and scalability.
 
-## Built With
 
+## Built With
 
 | Technolody | Short Description |
 |---|---|
 | [![My Skills](https://skillicons.dev/icons?i=ts)](https://skillicons.dev) | Used everywhere: as client & server side |
 | [![My Skills](https://skillicons.dev/icons?i=react)](https://skillicons.dev) | The web framework used |
-| [![My Skills](https://skillicons.dev/icons?i=vite)](https://skillicons.dev) | Best bundle |
-| [![My Skills](https://skillicons.dev/icons?i=tailwind)](https://skillicons.dev) | Best CSS framework |
+| [![My Skills](https://skillicons.dev/icons?i=vite)](https://skillicons.dev) | The best bundle |
+| [![My Skills](https://skillicons.dev/icons?i=tailwind)](https://skillicons.dev) | The best CSS framework |
 | [![My Skills](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev) | Server Environment | 
 | [![My Skills](https://skillicons.dev/icons?i=nestjs)](https://skillicons.dev) | Moder and scalable backend framework | 
 | [![My Skills](https://skillicons.dev/icons?i=mysql)](https://skillicons.dev) | Database | 
 | [![My Skills](https://skillicons.dev/icons?i=prisma)](https://skillicons.dev) | The best ORM I've used |
+
 
 ## Screenshots
 
@@ -35,6 +36,7 @@ Yumify is a full-stack e-commerce mobile web application designed for delivering
 ![image](https://github.com/b1on1kkk/Yumify/assets/114521829/666ae89d-7a90-4213-a3ce-b920517e159f)
 
 ![image](https://github.com/b1on1kkk/Yumify/assets/114521829/9f8fafd7-6d03-425a-b6db-282ad6faf678)
+
 
 ## Quick Start with Docker Compose
 
