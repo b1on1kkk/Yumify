@@ -20,7 +20,7 @@ Yumify is a full-stack e-commerce mobile web application designed for delivering
 | [![My Skills](https://skillicons.dev/icons?i=vite)](https://skillicons.dev) | The best bundle |
 | [![My Skills](https://skillicons.dev/icons?i=tailwind)](https://skillicons.dev) | The best CSS framework |
 | [![My Skills](https://skillicons.dev/icons?i=nodejs)](https://skillicons.dev) | Server Environment | 
-| [![My Skills](https://skillicons.dev/icons?i=nestjs)](https://skillicons.dev) | Moder and scalable backend framework | 
+| [![My Skills](https://skillicons.dev/icons?i=nestjs)](https://skillicons.dev) | Modern and scalable backend framework | 
 | [![My Skills](https://skillicons.dev/icons?i=mysql)](https://skillicons.dev) | Database | 
 | [![My Skills](https://skillicons.dev/icons?i=prisma)](https://skillicons.dev) | The best ORM I've used |
 
